@@ -1,6 +1,6 @@
 jest.mock('config')
 
-import config, { mockUpdate, mockGetId, mockReset } from 'config'
+import config, { mockUpdate, mockGetId, mockReset, mockUseNamedTrackers } from 'config'
 import createTrackers from '../src/create-trackers'
 import { getTracker } from '../src/helpers'
 

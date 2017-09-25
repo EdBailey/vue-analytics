@@ -27,6 +27,8 @@ const defaultConfig = {
   beforeFirstHit: noop,
   ready: noop,
 
+  useNamedTrackers: false,
+
   untracked: []
 }
 
@@ -42,6 +44,10 @@ export function reset () {
 
 export function getId () {
   return !config.id ? [] : [].concat(config.id)
+}
+
+export function useNamedTrackers () {
+  return config.useNamedTrackers || getId().length > 1
 }
 
 export default config

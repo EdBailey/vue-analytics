@@ -1,4 +1,4 @@
-import config, { getId } from './config'
+import config, { getId, useNamedTrackers } from './config'
 
 export function noop () {}
 
@@ -42,7 +42,7 @@ export function onAnalyticsReady () {
 }
 
 export function getMethod (name, trackerId) {
-  if (getId().length > 1) {
+  if (useNamedTrackers()) {
     const domain = getTracker(trackerId)
     return `${domain}.${name}`
   }

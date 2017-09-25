@@ -1,6 +1,6 @@
 import set from 'lib/set'
 import query from 'lib/query'
-import config, { getId } from './config'
+import config, { getId, useNamedTrackers } from './config'
 import { getTracker } from './helpers'
 
 export default function createTrackers () {
@@ -14,7 +14,7 @@ export default function createTrackers () {
 
   ids.forEach(function (id) {
     const name = getTracker(id)
-    const options = ids.length > 1 ? { ...config.fields, name } : config.fields
+    const options = useNamedTrackers() ? { ...config.fields, name } : config.fields
 
     window.ga('create', id, 'auto', options)
   })
